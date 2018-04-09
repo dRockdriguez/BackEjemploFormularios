@@ -1,0 +1,125 @@
+---
+swagger: "2.0"
+info:
+  description: "ewfafeaw"
+  version: "1.0.0"
+  title: "sadfasdfasdfas"
+  contact:
+    email: "you@your-company.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/dRockdriguez/pruebaSwagger2/1.0.0"
+tags:
+- name: "admins"
+  description: "Secured Admin-only calls"
+- name: "developers"
+  description: "Operations available to regular developers"
+schemes:
+- "https"
+paths:
+  /hola/usuario:
+    post:
+      tags:
+      - "developers"
+      summary: "searches inventory"
+      description: "By passing in the appropriate options, you can search for\navailable\
+        \ inventory in the system\n"
+      operationId: "asdf"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        201:
+          description: "item created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing item already exists"
+  /hola/{prueba}:
+    get:
+      tags:
+      - "developers"
+      summary: "searches inventory"
+      description: "By passing in the appropriate options, you can search for\navailable\
+        \ inventory in the system\n"
+      operationId: "searchInventory1"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "prueba"
+        in: "path"
+        description: "pass an optional search string for looking up inventory"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "search results matching criteria"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Prueba"
+        400:
+          description: "bad input parameter"
+  /hola/hola:
+    get:
+      tags:
+      - "developers"
+      summary: "searches inventory"
+      description: "By passing in the appropriate options, you can search for\navailable\
+        \ inventory in the system\n"
+      operationId: "searchInventory"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "nombre"
+        in: "query"
+        description: "pass an optional search string for looking up inventory"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "search results matching criteria"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Prueba"
+        400:
+          description: "bad input parameter"
+    post:
+      tags:
+      - "admins"
+      summary: "adds an inventory item"
+      description: "Adds an item to the system"
+      operationId: "addInventory"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "nombre"
+        description: "Inventory item to add"
+        required: false
+        schema:
+          $ref: "#/definitions/Prueba"
+      responses:
+        201:
+          description: "item created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing item already exists"
+definitions:
+  Prueba:
+    type: "object"
+    required:
+    - "cosa"
+    properties:
+      cosa:
+        type: "string"
+    example:
+      cosa: "cosa"
+

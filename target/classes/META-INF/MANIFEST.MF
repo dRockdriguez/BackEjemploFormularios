@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Implementation-Title: Sample: Hello World Microservice
+Implementation-Version: 2.5.3-SNAPSHOT
+Built-By: david.rodriguez
+Specification-Vendor: WSO2
+Specification-Title: Sample: Hello World Microservice
+Implementation-Vendor-Id: org.wso2.msf4j.sample
+Build-Jdk: 1.8.0_161
+Specification-Version: 2.5.3-SNAPSHOT
+Implementation-URL: http://www.wso2.org/helloworld/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: WSO2
+
