@@ -55,12 +55,25 @@ public class HelloService {
 	private static final java.nio.file.Path MOUNT_PATH = Paths.get(".");
 	private static String nomb = "";
 	
+	@OPTIONS
+	@Path("/llamadaSOAP1")
+	@Produces({ "application/json" })
+	@ResponseBody
+	public Response optionsSOap1() throws NameNotFoundException, NameNullException {
+		return Response.status(Response.Status.OK).header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "POST, OPTIONS")
+				.header("Access-Control-Allow-Headers",
+						"authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction,Authorization,Content-Type, Accept, X-Requested-With")
+				.build();
+	}
 	@GET
 	@Path("/llamadaSOAP1")
 	@Produces({ "application/json" })
 	public Response getSOAP1() throws ServiceException, IOException  {
+		JSONObject json = new JSONObject();
 		
-		return Response.ok("Holitas")
+		json.put("mensaje", "pepito");
+		return Response.ok(json.toJSONString())
 				.header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Credentials", "true")
 				.header("Access-Control-Allow-Methods", "GET, OPTIONS")
 				.header("Access-Control-Allow-Headers",
